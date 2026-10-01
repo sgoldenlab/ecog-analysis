@@ -1,0 +1,78 @@
+{
+  "defaults": {
+    "raw_edf_folder": "../raw_edfs",
+    "fs": 400,
+    "n_fft": 10000,
+    "notch_quality": 300,
+    "tick_step": 600,
+    "clim": [-80, -100],
+    "event_colors": {}
+  },
+  "animals": {
+    "PEEG01M": {
+      "channel_index": 0,
+      "recordings": {
+        "AwakeControl_R1": {
+          "edf_filename": "EmergRev_3Perc_AwakeControl_PEEG01M_2026-09-10_13_30_25_export.edf",
+          "events": {"onset": 0},
+          "clim": [-90, -110],
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        },
+        "Induction_R2": {
+          "edf_filename": "EmergRev_3Perc_Induction_PEEG01M_2026-09-01_13_23_07_export.edf",
+          "events": {"onset": 1800},
+          "clim": [-90, -110],
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        }
+      }
+    },
+    "PEEG02M": {
+      "channel_index": 0,
+      "recordings": {
+        "AwakeControl_R1": {
+          "edf_filename": "EmergRev_3Perc_AwakeControl_PEEG02M_2026-09-10_13_30_25_export.edf",
+          "events": {"onset": 0},
+          "clim": [-90, -110],
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        },
+        "Induction_R1": {
+          "edf_filename": "EmergRev_3Perc_Induction_PEEG02M_2026-08-27_15_49_57_export.edf",
+          "events": {"onset": 1800},
+          "clim": [-90, -110],
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        }
+      }
+    },
+    "PEEG03F": {
+      "channel_index": 1,
+      "recordings": {
+        "AwakeControl_R1": {
+          "edf_filename": "EmergRev_3Perc_AwakeControl_PEEG03F_2026-09-10_13_30_25_export.edf",
+          "events": {"onset": 0},
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        },
+        "Induction_R1": {
+          "edf_filename": "EmergRev_3Perc_Induction_PEEG03F_2026-08-27_15_49_57_export.edf",
+          "events": {"onset": 1800},
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        }
+      }
+    },
+    "PEEG04F": {
+      "channel_index": 0,
+      "recordings": {
+        "AwakeControl_R1": {
+          "edf_filename": "EmergRev_3Perc_AwakeControl_PEEG04F_2026-09-10_13_30_25_export.edf",
+          "events": {"onset": 0},
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        },
+        "Induction_R1": {
+          "edf_filename": "EmergRev_3Perc_Induction_PEEG04F_2026-09-15_13_46_21_export.edf",
+          "events": {"onset": 1860},
+          "clim": [-90, -110],
+          "spectrogram": {"freq_min": 0, "freq_max": 20, "align_event": "onset", "start_time": 0, "end_time": 3600, "figsize": [5, 2.5]}
+        }
+      }
+    }
+  }
+}

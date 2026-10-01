@@ -1,0 +1,206 @@
+{
+  "defaults": {
+    "raw_edf_folder": "raw_edfs",
+    "fs": 400,
+    "n_fft": 10000,
+    "notch_quality": 300,
+    "tick_step": 600,
+    "event_colors": {
+      "SAL": "w",
+      "CNO": "w",
+      "ISO ON": "w"
+    }
+  },
+  "animals": {
+    "C00391034-1L": {
+      "recordings": {
+        "SAL-CNO_R1": {
+          "edf_filename": "LSL_C00391034-1L_SAL_CNO_1_2026-08-26_13_00_30_export.edf",
+          "channel_index": 1,
+          "events": {
+            "SAL": 1260,
+            "CNO": 2460
+          },
+          "clim": [-85, -105],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "CNO",
+            "start_time": -2400,
+            "end_time": 2400,
+            "figsize": [5, 2.5]
+          }
+        },
+        "ISO_R1": {
+          "edf_filename": "LSL_C00391034-1L_2026-09-15_11_30_35_export.edf",
+          "channel_index": 1,
+          "events": {
+            "ISO ON": 1500,
+            "ISO OFF": 4590
+          },
+          "clim": [-85, -105],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "ISO ON",
+            "start_time": -1200,
+            "end_time": 2400,
+            "figsize": [4, 2.5]
+          }
+        }
+      }
+    },
+    "C00391035-1L": {
+      "recordings": {
+        "SAL-CNO_R1": {
+          "edf_filename": "LSL_C00391035-1L_SAL-CNO_2026-08-27_13_40_52_export.edf",
+          "channel_index": 1,
+          "events": {
+            "SAL": 1360,
+            "CNO": 2600
+          },
+          "clim": [-85, -110],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "CNO",
+            "start_time": -2400,
+            "end_time": 2400,
+            "figsize": [5, 2.5]
+          }
+        },
+        "ISO_R1": {
+          "edf_filename": "LSL_C00391035-1L_2026-09-02_14_36_29_export.edf",
+          "channel_index": 0,
+          "events": {
+            "ISO ON": 1500,
+            "ISO OFF": 4860
+          },
+          "clim": [-85, -100],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "ISO ON",
+            "start_time": -1200,
+            "end_time": 2400,
+            "figsize": [4, 2.5]
+          }
+        }
+      }
+    },
+    "C00391035-2R": {
+      "recordings": {
+        "SAL-CNO_R1": {
+          "edf_filename": "LSL_C00391035-2R_SAL-CNO_2026-08-27_13_40_52_export.edf",
+          "channel_index": 1,
+          "events": {
+            "SAL": 1220,
+            "CNO": 2500
+          },
+          "clim": [-85, -105],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "CNO",
+            "start_time": -2400,
+            "end_time": 2400,
+            "figsize": [5, 2.5]
+          }
+        },
+        "ISO_R1": {
+          "edf_filename": "LSL_C00391035-2R_2026-09-02_14_36_29_export.edf",
+          "channel_index": 1,
+          "events": {
+            "ISO ON": 1500,
+            "ISO OFF": 4590
+          },
+          "clim": [-90, -110],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "ISO ON",
+            "start_time": -1200,
+            "end_time": 2400,
+            "figsize": [4, 2.5]
+          }
+        }
+      }
+    },
+    "C00391036-1L": {
+      "recordings": {
+        "SAL-CNO_R1": {
+          "edf_filename": "LSL_C00391036_1L_SALCNO_2026-08-31_12_49_19_export.edf",
+          "channel_index": 0,
+          "events": {
+            "SAL": 1220,
+            "CNO": 2420
+          },
+          "clim": [-85, -100],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "CNO",
+            "start_time": -2400,
+            "end_time": 2400,
+            "figsize": [5, 2.5]
+          }
+        },
+        "ISO_R1": {
+          "edf_filename": "LSL_C00391036-1L_2026-09-02_14_36_29_export.edf",
+          "channel_index": 0,
+          "events": {
+            "ISO ON": 1500,
+            "ISO OFF": 4590
+          },
+          "clim": [-80, -100],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "ISO ON",
+            "start_time": -1200,
+            "end_time": 2400,
+            "figsize": [4, 2.5]
+          }
+        }
+      }
+    },
+    "C00391036-1R": {
+      "recordings": {
+        "SAL-CNO_R1": {
+          "edf_filename": "LSL_C00391036_1R_SALCNO_2026-08-31_12_49_19_export.edf",
+          "channel_index": 0,
+          "events": {
+            "SAL": 1340,
+            "CNO": 2540
+          },
+          "clim": [-80, -100],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "CNO",
+            "start_time": -2400,
+            "end_time": 2400,
+            "figsize": [5, 2.5]
+          }
+        },
+        "ISO_R1": {
+          "edf_filename": "LSL_C00391036-1R_2026-09-02_14_36_29_export.edf",
+          "channel_index": 1,
+          "events": {
+            "ISO ON": 1500,
+            "ISO OFF": 4590
+          },
+          "clim": [-90, -110],
+          "spectrogram": {
+            "freq_min": 0,
+            "freq_max": 20,
+            "align_event": "ISO ON",
+            "start_time": -1200,
+            "end_time": 2400,
+            "figsize": [4, 2.5]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecog-analysis"
+version = "0.1.0"
+description = "ECoG/EEG analysis toolkit and replicable final analyses (LSL-DREADD, Emergence)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.14",
+    "pandas>=3.0",
+    "matplotlib>=3.9",
+    "statsmodels>=0.15",
+    "mne>=1.12",
+    "fooof==1.1.1",
+    "ipykernel>=7.4.0",
+    "jupyter>=1.1.1",
+]
+
+[project.optional-dependencies]
+notebooks = ["ipykernel>=7.0", "jupyter>=1.1"]
+excel = ["openpyxl>=3.1"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["ecog*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
