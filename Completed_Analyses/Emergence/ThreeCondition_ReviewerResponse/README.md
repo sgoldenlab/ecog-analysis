@@ -25,12 +25,19 @@ in a parent folder). First run ~1-2 min (EDF -> CSV, per-epoch fooof fits); late
       conventional_band_measures.png                    absolute / share / periodic band power (dpi 300)
       aperiodic_exponent.png/.svg                       panels a (spectra + fitted background) and b (exponent over time), dpi 600
       summary_inset.png/.svg                            background slope and spectral entropy, paired per animal, dpi 600
-      response_stats_anova.csv, response_stats_pairwise.csv, response_per_animal_primary_window.csv
+      response_stats_anova.csv, response_stats_pairwise.csv
+      response_per_animal_primary_window.csv            per-animal means of every tested measure, plus fit_r2 and fit_error
+      response_fit_quality.csv                          aperiodic fit R2 and error per condition, primary window
       run_info.json                                     date, package versions, settings
 
 Statistics: per-animal mean in the window, repeated-measures ANOVA across conditions, paired t-tests between conditions,
 `p_adj` = Benjamini-Hochberg across the pairwise contrasts within metric x window (`P_ADJUST = "fdr_bh"`; the original
 notebook text said Holm, the code ran BH). Primary window `30-55 min` = 1800-3350 s after onset (recordings end at ~3350 s).
+
+Fit quality (`ecog.fitQuality`, not tested): per condition, the mean and SD across animals of each animal's mean
+`fit_r2` and `fit_error` over its epochs in the primary window, and the median and minimum `fit_r2` over those epochs.
+R2 falls for a flat spectrum (exponent near 0) even when the model follows the data; `fit_error` (mean absolute
+error, log10 power) does not depend on the slope, so the two are reported together.
 
 The burst-suppression control (exponent on epochs with <= 1% suppression, `figSuppressionControl`, suppression-free ANOVA
 export) is kept in `run_analysis.py` as a commented-out block (section e); uncomment it to run it.

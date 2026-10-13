@@ -18,7 +18,8 @@ runs reuse `cache/`. Deliverables in `outputs/` are never overwritten: a repeate
     cache/             raw CSVs and derived/epoch_table.csv + epoch_spectra.npz (created at run time, git-ignored)
     outputs/           same files as the three-condition folder (spectrograms/, epoch_table.csv, conventional_band_measures.png,
                        aperiodic_exponent.png/.svg, summary_inset.png/.svg, response_stats_anova.csv,
-                       response_stats_pairwise.csv, response_per_animal_primary_window.csv, run_info.json)
+                       response_stats_pairwise.csv, response_per_animal_primary_window.csv, response_fit_quality.csv,
+                       run_info.json)
 
 Differences from the three-condition script:
 

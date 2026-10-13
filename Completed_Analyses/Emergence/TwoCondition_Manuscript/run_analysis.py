@@ -27,6 +27,7 @@ METRICS = ["exponent", "offset", "total_power",
            "delta_rel", "theta_rel", "alpha_rel",
            "delta_periodic", "theta_periodic", "alpha_periodic",
            "median_freq", "spectral_entropy", "sef95", "suppression_pct", "mean_abs_uv"]  # epoch-table measures tested
+FIT_QUALITY = ["fit_r2", "fit_error"]  # aperiodic fit quality, exported per animal (not tested)
 P_ADJUST = "fdr_bh"  # pairwise correction across contrasts within metric x window (Benjamini-Hochberg)
 REPORTED = ["exponent", "spectral_entropy"]  # measures reported together; q_measures corrects across them (Benjamini-Hochberg)
 DISPLAY_LABELS = {}  # legend names for conditions, e.g. {"AwakeControl": "Open Field", "Induction": "Emergence"}
@@ -86,7 +87,10 @@ print(ecog.perAnimalMeans(table, summary_metrics, WINDOWS[PRIMARY], ORDER)
 # ---- g. exports
 ecog.saveTable(anova, OUT / "response_stats_anova.csv")  # RM-ANOVA, every metric x window
 ecog.saveTable(pairwise, OUT / "response_stats_pairwise.csv")  # paired t-tests, every metric x window x contrast
-ecog.saveTable(ecog.perAnimalMeans(table, METRICS, WINDOWS[PRIMARY], ORDER), OUT / "response_per_animal_primary_window.csv")  # per-animal means, primary window
+ecog.saveTable(ecog.perAnimalMeans(table, METRICS + FIT_QUALITY, WINDOWS[PRIMARY], ORDER), OUT / "response_per_animal_primary_window.csv")  # per-animal means + fit quality, primary window
+fit_quality = ecog.fitQuality(table, WINDOWS[PRIMARY], ORDER)  # fit R2 and error per condition: mean/SD across animals, median/min over epochs
+ecog.saveTable(fit_quality, OUT / "response_fit_quality.csv")  # aperiodic fit quality, primary window
+print(fit_quality.round(3).to_string(index=False))  # fit quality per condition
 
 # ---- h. run record
 ecog.writeRunInfo(OUT, {"params": PARAMS.name, "recordings": RECORDINGS, "order": ORDER, "primary": PRIMARY, "windows": WINDOWS,
