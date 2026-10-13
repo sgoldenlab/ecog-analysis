@@ -10,6 +10,7 @@ mean (or median) of its samples/epochs in that window, animals are matched acros
 - fdrAcrossMeasures: a correction across the MEASURES reported together (the relevant family when only two
   conditions are compared, so there is a single contrast per measure)
 - perAnimalMeans: each animal's mean of a set of metrics in a window
+- fitQuality: R^2 and error of the aperiodic fit per condition (per-animal first)
 """
 import itertools
 
@@ -229,6 +230,32 @@ def perAnimalMeans(df, metrics, window, condition_order=None):
     if condition_order:
         out["condition"] = pd.Categorical(out["condition"], condition_order, ordered=True)
         out = out.sort_values(["condition", "animal_id"]).reset_index(drop=True)
+    return out
+
+
+def fitQuality(df, window=None, condition_order=None):
+    """
+    Quality of the aperiodic fit per condition, one row per condition, per-animal first.
+
+    `fit_r2_mean`/`fit_r2_sd` and `fit_error_mean`/`fit_error_sd` are the mean and SD across animals of each
+    animal's mean over its epochs (the values `perAnimalMeans` returns for `fit_r2` and `fit_error`);
+    `fit_r2_median`/`fit_r2_min` are taken over all epochs of the condition. `window` = (lo, hi) in seconds
+    restricts the epochs as in `perAnimalMeans`; None uses every epoch.
+
+    Read the two together: R^2 is the share of the spectrum's variance the model explains, so it drops for a
+    flat spectrum (exponent near 0) even when the model follows the data, whereas `fit_error` (mean absolute
+    error in log10 power) does not depend on the slope.
+    """
+    w = df if window is None else df[(df["timeSeg"] >= window[0]) & (df["timeSeg"] < window[1])]
+    animals = w.groupby(["condition", "animal_id"])[["fit_r2", "fit_error"]].mean().groupby("condition")
+    epochs = w.groupby("condition")["fit_r2"]
+    out = pd.DataFrame({"n_animals": animals.size(), "n_epochs": epochs.size(),
+                        "fit_r2_mean": animals["fit_r2"].mean(), "fit_r2_sd": animals["fit_r2"].std(),
+                        "fit_r2_median": epochs.median(), "fit_r2_min": epochs.min(),
+                        "fit_error_mean": animals["fit_error"].mean(), "fit_error_sd": animals["fit_error"].std()}).reset_index()
+    if condition_order:
+        out["condition"] = pd.Categorical(out["condition"], condition_order, ordered=True)
+        out = out.sort_values("condition").reset_index(drop=True)
     return out
 
 

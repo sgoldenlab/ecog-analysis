@@ -20,7 +20,7 @@ from ecog.aggregate import bandTable, aggregateAligned
 from ecog.epochs import (buildEpochTable, recordingEpochTable, epochTableFromCSV, epochPSDs, fitAperiodicEpochs,
                          stateMetrics, suppressionByEpoch, meanSpectrumByCondition, aperiodicCurve)
 from ecog.stats import (compareConditionMeans, compareConditionsANOVA, compareAcrossConditions,
-                        fdrAcrossMeasures, perAnimalMeans)
+                        fdrAcrossMeasures, perAnimalMeans, fitQuality)
 from ecog.emg import extractEMG, cleanEMG, emgEnvelope, emgEpochTable, attachEMG, figEMG
 from ecog.plots import plotRecordingSpectrogram
 from ecog.outputs import saveFigure, saveTable, writeRunInfo, uniquePath

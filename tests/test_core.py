@@ -186,6 +186,16 @@ def test_compareAcrossConditions_and_fdr_across_measures():
     assert (out["q_measures"] >= out["p"] - 1e-12).all()
 
 
+def test_fitQuality_is_per_animal_first():
+    rows = [{"timeSeg": t * 30.0, "animal_id": a, "condition": c, "fit_r2": r2, "fit_error": 0.1}
+            for c in ("A", "B") for a, r2, n in (("M0", 0.5, 2), ("M1", 0.9, 6)) for t in range(n)]
+    out = ecog.fitQuality(pd.DataFrame(rows), condition_order=["B", "A"])
+    assert list(out["condition"]) == ["B", "A"] and (out["n_animals"] == 2).all() and (out["n_epochs"] == 8).all()
+    assert np.allclose(out["fit_r2_mean"], 0.7) and np.allclose(out["fit_r2_median"], 0.9)   # animals weigh equally; epochs do not
+    assert np.allclose(out["fit_r2_min"], 0.5) and np.allclose(out["fit_error_mean"], 0.1)
+    assert (ecog.fitQuality(pd.DataFrame(rows), window=(0, 60))["n_epochs"] == 4).all()      # window keeps 2 epochs per animal
+
+
 def test_stripplot_gray_lines_and_missing_animal():
     import matplotlib.pyplot as plt
     from ecog.plots import plot_condition_stripplot
